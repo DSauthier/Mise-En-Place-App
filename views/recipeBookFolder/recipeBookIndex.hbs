@@ -1,0 +1,19 @@
+
+
+<a href="/recipeBook/new"><button class="loginButton ">Create new Recipe Book</button></a>
+<div class="row recipeGrid">
+  {{#each allBooks}}
+
+  <div class="col-sm-6 col-md-3 eachRecipeGrid">
+    <img class="img-fluid" src="/images/img_avatar2.png" alt="">
+
+    <div class="recipeInfo">
+      <h1>{{this.name}}</h1>
+    </div>
+    <a href="recipeBook/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
+  </div>
+  {{/each}}
+
+
+
+</div>

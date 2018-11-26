@@ -1,0 +1,402 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+a {
+  color: #00B7FF; }
+
+.landing {
+  position: relative;
+  top: 35vh;
+  color: cornsilk;
+  font-family: 'Courgette', cursive; }
+
+.landing h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 4.5em; }
+
+.landing h5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center; }
+
+.navbarSize {
+  padding: 10px;
+  width: 100vw;
+  padding-left: -10px;
+  margin-left: -50px;
+  position: absolute;
+  top: 0; }
+
+.form ul {
+  list-style-type: none; }
+
+.form label {
+  float: left;
+  text-align: left;
+  margin-right: 15px;
+  width: 100px; }
+
+.containerForm input[type=text], select, textarea {
+  width: 100%;
+  /* Full width */
+  padding: 12px;
+  /* Some padding */
+  border: 1px solid #ccc;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded borders */
+  box-sizing: border-box;
+  /* Make sure that padding and width stays in place */
+  margin-top: 6px;
+  /* Add a top margin */
+  margin-bottom: 16px;
+  /* Bottom margin */
+  resize: vertical; }
+
+/* Style the submit button with a specific background color etc */
+.containerForm input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; }
+
+/* When moving the mouse over the submit button, add a darker green color */
+.containerForm input[type=submit]:hover {
+  background-color: #45a049; }
+
+/* Add a background color and some padding around the form */
+.containerForm {
+  border-radius: 5px;
+  background-color: #4CAF50;
+  padding: 20px; }
+
+.phraseToCallAtention {
+  color: cornsilk;
+  font-family: 'Courgette', cursive;
+  display: flex;
+  justify-content: center;
+  font-size: 6vw; }
+
+.firstRegisterButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0px;
+  margin-left: 39%;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  border-radius: 10px;
+  font-size: 4.5rem; }
+
+/* The Modal (background) */
+/* Full-width input fields */
+.modal input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box; }
+
+.firstLoginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  margin-left: 40%;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 10px;
+  font-size: 4.5rem; }
+
+.loginButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  margin-left: 45%;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  border-radius: 10px; }
+
+.modal button:hover {
+  opacity: 0.8; }
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+  border-radius: 10px; }
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative; }
+
+img.avatar {
+  width: 30%;
+  border-radius: 50%; }
+
+.modalContainer {
+  padding: 16px; }
+
+span.psw {
+  float: right;
+  padding-top: 16px; }
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px; }
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;
+  /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */ }
+
+/* The Close Button */
+.close {
+  /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold; }
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer; }
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s; }
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0); }
+  to {
+    -webkit-transform: scale(1); } }
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5.5rem;
+  color: cornsilk;
+  font-family: 'Courgette', cursive; }
+
+.icon {
+  padding: 40px;
+  margin: 10px;
+  /* font-size: 20px; */
+  font-size: 13vw;
+  color: darkorange; }
+
+.dashboardDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.iconLink {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh;
+  background-color: red;
+  box-shadow: 0 5px 0 darkred;
+  color: white;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 35px; }
+
+.divLink {
+  padding: -5px;
+  margin: 10px; }
+
+.iconLink:hover {
+  background-color: #ce0606;
+  cursor: pointer;
+  text-decoration: none;
+  color: white; }
+
+.iconLink:active {
+  box-shadow: none;
+  top: 5px;
+  text-decoration: none; }
+
+.background404 body {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0; }
+
+.background404 {
+  background-image: url("/images/pexels-photo-172276.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: -30px -65px -52px -50px; }
+
+.kitchen404 {
+  border: 10px solid grey;
+  border-radius: 50%;
+  position: relative;
+  left: 18%; }
+
+.title404 {
+  color: seashell;
+  font-size: 3.5rem;
+  font-family: 'Pattaya', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.eachRecipeGrid {
+  padding: 30px;
+  margin: 3.7vw; }
+
+.eachRecipeAnchor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  margin-left: 25%;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 10px; }
+
+.recipeInfo {
+  border: 4px solid purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  flex-wrap: wrap;
+  color: cornsilk;
+  font-family: 'Courgette', cursive; }
+
+.newRecipeDiv {
+  font-family: 'Courgette',cursive;
+  color: lightgreen; }
+
+.newRecipeDiv h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.newRecipeDiv > form > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; }
+
+.newRecipeDiv form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
+.recipeText {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; }
+
+.recipeText label {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-family: 'Courgette',cursive;
+  color: lightgreen; }
+
+.textArea {
+  margin: 2px 30px; }
+
+.lastNextButton {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.orangeButton {
+  margin: 0px 25px; }
+
+.editRecipeDiv {
+  font-family: 'Courgette',cursive;
+  color: firebrick;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px black; }
+
+.recipeImage {
+  width: 35vw; }
+
+.listStyleNone {
+  list-style-type: none; }
+
+.eachRecipeBookGrid {
+  padding: 30px;
+  margin: 3vw; }
+
+.eachRecipeBookGrid img {
+  height: 30vh;
+  width: 25vw; }
+
+.eachRecipeBookGrid p {
+  font-size: 1.2rem; }
+
+/*# sourceMappingURL=style.css.map */

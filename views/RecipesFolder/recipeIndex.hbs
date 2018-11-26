@@ -1,0 +1,21 @@
+
+
+<a href="/recipes/new"><button class="loginButton ">Create new Recipe</button></a>
+<div class="row recipeGrid">
+{{#each Recipes}}
+
+<div class="col-sm-6 col-md-3 eachRecipeGrid">
+    <img class="img-fluid" src="{{this.image}}" alt="">
+
+    <div class="recipeInfo">
+    <h1>{{this.name}}</h1>
+    {{!-- <img src="{{this.image}}" alt=""> --}}
+    {{!-- line 14 change the path ! --}}
+    </div>
+    <a  href="recipes/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
+</div>
+{{/each}}
+
+
+
+</div>

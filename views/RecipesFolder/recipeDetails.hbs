@@ -1,0 +1,61 @@
+<div class="container lastNextButton">
+  <a href=""><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Recipes</button></a>
+  <a href=""><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+</div>
+
+<div class="container editRecipeDiv">
+  
+<h1>
+  {{theRecipe.name}}
+</h1>
+<div>
+<img class="recipeImage" src="{{theRecipe.image}}" alt="">
+</div>
+
+<br>
+
+<h2> Creator: {{theRecipe.author.username}}</h2>
+
+<br>
+
+<div >
+  <h2>
+    <ul class="listStyleNone">
+
+ Ingredients: {{#each theIngredients}}
+<li>
+ {{this}}
+</li>
+
+ {{/each}}
+    </ul>
+  </h2>
+
+<br>
+  <h2>
+    <ul class="listStyleNone">
+  
+      Directions: {{#each theDirection}}
+      <li>
+        {{this}}
+      </li>
+  
+      {{/each}}
+    </ul>
+  </h2>
+</div>
+<h4>
+ Time to make: {{theRecipe.time}} Minutes</h4>
+
+
+{{#if canDelete}}
+  <form action="{{theRecipe._id}}/delete" method="POST">
+    <button class="orangeButton btn btn-outline-warning">Delete This Recipe</button>
+  </form>
+  <br>
+  <a href="{{theRecipe._id}}/edit"><button class="orangeButton btn btn-outline-warning">Edit This Recipe</button></a>
+{{/if}}
+
+
+</div>

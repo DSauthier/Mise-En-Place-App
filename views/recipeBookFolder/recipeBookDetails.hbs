@@ -1,0 +1,38 @@
+<div class="container lastNextButton">
+  <a href=""><button class="orangeButton btn btn-outline-warning">Last Recipe Book</button></a>
+  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to Recipe Books Page </button></a>
+  <a href=""><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+</div>
+
+<div class="container editRecipeDiv">
+
+{{!-- -=-=-=-==--=-=-=-=-=-= --}}
+<div class="row recipeGrid">
+  {{#each theRecipeBook.recipes}}
+
+  <div class="col-sm-6 col-md-3 eachRecipeBookGrid">
+    <img class="img-fluid" src="{{this.image}}" alt="">
+
+    <div class="">
+      <p>{{this.name}}</p>
+    </div>
+    <div>
+    <a href="recipes/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
+    </div>
+  </div>
+  {{/each}}
+
+{{#if canDelete}}
+<div class="container lastNextButton">
+
+<form action="{{theRecipeBook._id}}/delete" method="POST">
+  <button class="orangeButton btn btn-outline-warning" >Delete This Recipe Book</button>
+</form>
+{{!-- <form action="{{theRecipeBook._id}}/edit" method="GET"> --}}
+  <a href="{{theRecipeBook._id}}/edit"><button class="orangeButton btn btn-outline-warning" >Edit This Recipe Book</button></a>
+  {{!-- </form> --}}
+</div>
+{{/if}}
+
+
+
