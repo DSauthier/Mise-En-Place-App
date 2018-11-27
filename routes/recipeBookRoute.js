@@ -5,14 +5,14 @@ const Recipe = require("../models/RecipeModel")
 
 // {{!-- / -=-=-=-=-=-==--=-==-show all recipes books starts-==--=-=-=-=-= --}}
 
-router.get('/', (req, res, next) => {
-  Books.find()
-    .then((allBooks) => {
-      res.render('recipeBookFolder/recipeBookIndex', { allBooks: allBooks})
+router.get("/recipeBook", (req, res, next) => {
+  Books.find({author: req.user._id})
+    .then(allBooks => {
+      res.render("recipeBookFolder/recipeBookIndex", { allBooks: allBooks });
     })
-    .catch((err) => {
+    .catch(err => {
       next(err);
-    })
+    });
   // }
 });
 
@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 
 // {{!-- / -=-=-=-=-=-==--=-==-create all recipes book starts-==--=-=-=-=-= --}}
 
-router.get("/new", (req, res, next) => {
+router.get("/recipeBook/new", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "sorry you must be logged in to create a recipe book");
     res.redirect("/login");
@@ -34,7 +34,7 @@ router.get("/new", (req, res, next) => {
       });
   }
 });
-router.post("/recipeBook/create", (req, res, next) => {
+router.post("/recipeBook/recipeBook/create", (req, res, next) => {
   const newRecipeBook = req.body;
   newRecipeBook.author = req.user._id;
 
@@ -53,7 +53,7 @@ router.post("/recipeBook/create", (req, res, next) => {
 
 
 // =-=--=-=-=-=show each recipe book detail starts-==--=-=-=
-router.get('/:id', (req, res, next) => {
+router.get("/recipeBook/:id", (req, res, next) => {
   let canDelete = false;
   let canEdit = false;
   Books.findById(req.params.id)
@@ -67,73 +67,70 @@ router.get('/:id', (req, res, next) => {
           canDelete = true;
         }
       }
-      data = { 
-        theRecipeBook: theRecipeBook, 
-        canDelete: canDelete, 
-        canEdit: canEdit };
+      data = {
+        theRecipeBook: theRecipeBook,
+        canDelete: canDelete,
+        canEdit: canEdit
+      };
       // console.log(data)
       res.render("recipeBookFolder/recipeBookDetails", data);
     })
     .catch(err => {
       next(err);
     });
-})
+});
 // =--=-=-=-=-=show each recipe book detail ends-=-=-=-=-=-=
 
 // =--=-=-==-=-=--=EDIT recipe starts=--=-=-=-=-==-=-
 
 
-router.get('/:_id/edit', (req, res, next) => {
+router.get("/recipeBook/:_id/edit", (req, res, next) => {
   Books.findById(req.params._id)
-    .then((theRecipeBook) => {
-
+    .then(theRecipeBook => {
       Recipe.find()
-      .then((allTheRecipes)=>{
-        console.log(allTheRecipes)
-        
-              res.render("recipeBookFolder/editRecipeBook", {
-                theRecipeBook: theRecipeBook,
-                recipes: allTheRecipes
-              });
+        .then(allTheRecipes => {
+          console.log(allTheRecipes);
 
-      })
-      .catch((err)=>{
-        next(err)
-      })
-
-
-
+          res.render("recipeBookFolder/editRecipeBook", {
+            theRecipeBook: theRecipeBook,
+            recipes: allTheRecipes
+          });
+        })
+        .catch(err => {
+          next(err);
+        });
     })
-    .catch((err) => {
+    .catch(err => {
       next(err);
-    })
+    });
 });
 
-router.post('/:_id/update', (req, res, next) => {
-
-  Books.findByIdAndUpdate(req.params._id, { $push: { recipes: req.body.recipeSelected}})
+router.post("/recipeBook/:_id/update", (req, res, next) => {
+  Books.findByIdAndUpdate(req.params._id, {
+    $push: { recipes: req.body.recipeSelected }
+  })
     .then(() => {
       // console.log("-=-==--=-=-=-==-"+theRecipe)
       res.redirect("/recipeBook/" + req.params._id);
     })
-    .catch((err) => {
-      next(err)
-    })
-})
+    .catch(err => {
+      next(err);
+    });
+});
 
 // =--=-=-=-=-=-=-=EDIT RECIPE ENDS=--==--=-=-=-=-=-=
 
 // -==--=-=-=delete Recipe Book starts=--=-=-=-=-=
-router.post('/:id/delete', (req, res, next) => {
+router.post("/recipeBook/:id/delete", (req, res, next) => {
   Books.findByIdAndRemove(req.params.id)
     .then(() => {
-      res.redirect('/recipeBook')
+      res.redirect("/recipeBook");
     })
-    .catch((err) => {
-      console.log("error")
+    .catch(err => {
+      console.log("error");
       next(err);
-    })
-})
+    });
+});
 // =-=--=-=-=-=delete recipe ends=--=-=-=-=-=
 
 module.exports = router;

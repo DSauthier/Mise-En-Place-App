@@ -4,8 +4,8 @@ const Recipe = require('../models/RecipeModel');
 const uploadCloud = require("../config/cloudinary.js");
 
 // index recipe page-> show all recipes --==--=-=-=-=
-router.get("/recipes", (req, res, next) => {
-  Recipe.find()
+router.get("/myRecipes", (req, res, next) => {
+  Recipe.find({ author: req.user._id })
     .then(allTheRecipes => {
       res.render("RecipesFolder/recipeIndex", { Recipes: allTheRecipes });
     })
@@ -17,7 +17,7 @@ router.get("/recipes", (req, res, next) => {
 // -=-=-=-=-=-==--=-==-show all recipes end-==--=-=-=-=-=
 
 // =-=--=-==-=-Create recipe -=--==--=-==--==-
-router.get("/recipes/new", (req, res, next) => {
+router.get("/myRecipes/new", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "sorry you must be logged in to create a recipe");
     res.redirect("/login");
@@ -33,21 +33,16 @@ router.get("/recipes/new", (req, res, next) => {
 });
 
 router.post(
-  "/recipes/recipes/create",
+  "/myRecipes/recipes/create",
   uploadCloud.single("image"),
   (req, res, next) => {
     const newRecipe = req.body;
     newRecipe.author = req.user._id;
 
-
     if (req.file) {
       const image = req.file.url;
       newRecipe.image = image;
     }
-
-    
-
-
 
     // const newMovie = new Movie({ title, description, imgPath, imgName })
     Recipe.create(newRecipe)
@@ -66,7 +61,7 @@ router.post(
 // =--=-=-==-=-=--=EDIT recipe starts=--=-=-=-=-==-=-
 
 
-router.get("/recipes/:_id/edit", (req, res, next) => {
+router.get("/myRecipes/:_id/edit", (req, res, next) => {
   Recipe.findById(req.params._id)
     .then(theRecipe => {
       res.render("RecipesFolder/editRecipe", { theRecipe: theRecipe });
@@ -77,7 +72,7 @@ router.get("/recipes/:_id/edit", (req, res, next) => {
 });
 
 router.post(
-  "/recipes/:_id/update",
+  "/myRecipes/:_id/update",
   uploadCloud.single("image"),
   (req, res, next) => {
     const updateAll = req.body;
@@ -87,7 +82,7 @@ router.post(
 
       .then(() => {
         // console.log("-=-==--=-=-=-==-"+theRecipe)
-        res.redirect("/recipes/" + req.params._id);
+        res.redirect("/myRecipes/" + req.params._id);
       })
       .catch(err => {
         next(err);
@@ -98,56 +93,62 @@ router.post(
 // =--=-=-=-=-=-=-=EDIT RECIPE ENDS=--==--=-=-=-=-=-=
 
 // =-=--=-=-=-=show each recipe detail starts-==--=-=-=
-router.get("/recipes/:index", (req, res, next) => {
-
+router.get("/myRecipes/:index", (req, res, next) => {
   let canDelete = false;
   let canEdit = false;
   let theIndex = Number(req.params.index);
   let previous = theIndex - 1;
-  let nextOne = theIndex +1;
+  let nextOne = theIndex + 1;
 
-Recipe.count()
-.then((total)=>{
-  console.log(total)
-  if(previous<0){
-    previous = false
-  }
-  if(nextOne>total-1){
-    nextOne = false
-  }
-  Recipe.find({}, {}, { skip: theIndex, limit: 1})
-    .populate("author")
-    .then(theRecipe => {
-      theRecipe = theRecipe[0];
-      if (req.user) {
-        // console.log("--------- ", theRecipe.author._id);
-        // console.log("=========", req.user._id);
-        if (String(theRecipe.author._id) == String(req.user._id)) {
-          canDelete = true;
-        }
+  Recipe.count()
+    .then(total => {
+      console.log(total);
+      if (previous < 0) {
+        previous = false;
       }
+      if (nextOne > total - 1) {
+        nextOne = false;
+      }
+      Recipe.find({}, {}, { skip: theIndex, limit: 1 })
+        .populate("author")
+        .then(theRecipe => {
+          theRecipe = theRecipe[0];
+          if (req.user) {
+            // console.log("--------- ", theRecipe.author._id);
+            // console.log("=========", req.user._id);
+            if (String(theRecipe.author._id) == String(req.user._id)) {
+              canDelete = true;
+            }
+          }
 
-      const theIngredients = theRecipe.ingredients[0].split("\n");
-      theIngredients.shift();
+          const theIngredients = theRecipe.ingredients[0].split("\n");
+          theIngredients.shift();
 
-      const theDirection = theRecipe.directions.split("\n");
-      theDirection.shift();
+          const theDirection = theRecipe.directions.split("\n");
+          theDirection.shift();
 
-      data = { theRecipe: theRecipe, canDelete: canDelete, canEdit: canEdit, theIngredients, theDirection, previous: previous, next: nextOne };
-      // console.log(data)
-      res.render("RecipesFolder/recipeDetails", data);
-    }).catch(err => {
-      next(err);
-    });
-  })
-  .catch(() => {
-
-  })
+          data = {
+            theRecipe: theRecipe,
+            canDelete: canDelete,
+            canEdit: canEdit,
+            theIngredients,
+            theDirection,
+            previous: previous,
+            next: nextOne
+          };
+          // console.log(data)
+          res.render("RecipesFolder/recipeDetails", data);
+        })
+        .catch(err => {
+          next(err);
+        });
+    })
+    .catch(() => {});
 });
 // =--=-=-=-=-=show each recipe detail ends-=-=-=-=-=-=
 
 // -==--=-=-=delete Recipe starts=--=-=-=-=-=
-router.post("/recipes/:id/delete", (req, res, next) => {
+router.post("/myRecipes/:id/delete", (req, res, next) => {
   Recipe.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect("/recipes");

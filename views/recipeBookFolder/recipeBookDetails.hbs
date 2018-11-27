@@ -11,13 +11,13 @@
   {{#each theRecipeBook.recipes}}
 
   <div class="col-sm-6 col-md-3 eachRecipeBookGrid">
-    <img class="img-fluid" src="{{this.image}}" alt="">
+    <img class="imgSize" src="{{this.image}}" alt="">
 
-    <div class="">
+    <div class="recipeInfo">
       <p>{{this.name}}</p>
     </div>
     <div>
-    <a href="recipes/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
+    <a href="/recipes/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
     </div>
   </div>
   {{/each}}

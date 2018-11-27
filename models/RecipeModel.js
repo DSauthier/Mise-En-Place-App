@@ -10,7 +10,7 @@ const RecipeSchema = new Schema({
   ingredients: [String],
   directions: String,
   time: Number,
-  image: String,
+  image: {type: String, default: "/images/photo-1466637574441-749b8f19452f.jpeg"},
   imgName: String,
   cuisine:{ type: String, enum: ['Carnivore','Vegetarian','Vegan',"Seafood","Poultry","All Purpose","Basics"] },
   author: { type: Schema.Types.ObjectId, ref: 'User' }

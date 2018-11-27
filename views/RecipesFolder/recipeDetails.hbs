@@ -1,7 +1,12 @@
 <div class="container lastNextButton">
-  <a href=""><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  {{#if previous}}
+  <a href="/recipes/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  {{/if}}
   <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Recipes</button></a>
-  <a href=""><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+ 
+  {{#if next}}
+  <a href="/recipes/{{next}}"><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+  {{/if}}
 </div>
 
 <div class="container editRecipeDiv">
@@ -50,7 +55,7 @@
 
 
 {{#if canDelete}}
-  <form action="{{theRecipe._id}}/delete" method="POST">
+  <form action="/recipes/{{theRecipe._id}}/delete" method="POST">
     <button class="orangeButton btn btn-outline-warning">Delete This Recipe</button>
   </form>
   <br>

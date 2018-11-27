@@ -111,10 +111,14 @@ const user = require("./routes/userRoute");
 app.use("/", user);
 
 const recipe = require("./routes/recipeRoute");
-app.use("/recipes", recipe);
+app.use("/", recipe);
+
+const myRecipes = require("./routes/myRecipeRoute");
+app.use("/", myRecipes);
+
 
 const recipeBook = require("./routes/recipeBookRoute");
-app.use("/recipeBook", recipeBook);
+app.use("/", recipeBook);
 
 
 module.exports = app;
