@@ -1,16 +1,30 @@
-
+<div class="container welcome">
+  <h1> My Recipe Books</h1>
+</div>
 
 <a href="/recipeBook/new"><button class="loginButton ">Create new Recipe Book</button></a>
+<div class="container lastNextButton">
+  {{#if previous}}
+  <a href="/recipes/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  {{/if}}
+  <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Public Recipes</button></a>
+  <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipes</button></a>
+  {{!-- <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipe Books</button></a> --}}
+
+  {{#if next}}
+  <a href="/recipes/{{next}}"><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+  {{/if}}
+</div>
 <div class="row recipeGrid">
   {{#each allBooks}}
 
   <div class="col-sm-6 col-md-3 eachRecipeGrid">
-    <img class="img-fluid" src="/images/img_avatar2.png" alt="">
+    <img class="img-fluid" src="{{this.image}}" alt="">
 
     <div class="recipeInfo">
       <h1>{{this.name}}</h1>
     </div>
-    <a href="recipeBook/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
+    <a href="recipeBook/{{@index}}"><button class="eachRecipeAnchor">See Recipe Book </button></a>
   </div>
   {{/each}}
 

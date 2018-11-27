@@ -4,10 +4,11 @@ const Recipe = require('../models/RecipeModel');
 const uploadCloud = require("../config/cloudinary.js");
 
 // index recipe page-> show all recipes --==--=-=-=-=
+
 router.get("/myRecipes", (req, res, next) => {
   Recipe.find({ author: req.user._id })
     .then(allTheRecipes => {
-      res.render("RecipesFolder/recipeIndex", { Recipes: allTheRecipes });
+      res.render("myRecipeFolder/myrecipeIndex.hbs", { Recipes: allTheRecipes });
     })
     .catch(err => {
       next(err);
@@ -93,26 +94,29 @@ router.post(
 // =--=-=-=-=-=-=-=EDIT RECIPE ENDS=--==--=-=-=-=-=-=
 
 // =-=--=-=-=-=show each recipe detail starts-==--=-=-=
+
 router.get("/myRecipes/:index", (req, res, next) => {
+
   let canDelete = false;
   let canEdit = false;
   let theIndex = Number(req.params.index);
   let previous = theIndex - 1;
   let nextOne = theIndex + 1;
-
-  Recipe.count()
-    .then(total => {
-      console.log(total);
+  Recipe.count({ author: req.user._id })
+    .then((total) => {
+      console.log(total)
       if (previous < 0) {
-        previous = false;
+        previous = false
       }
       if (nextOne > total - 1) {
-        nextOne = false;
+        nextOne = false
       }
-      Recipe.find({}, {}, { skip: theIndex, limit: 1 })
-        .populate("author")
-        .then(theRecipe => {
-          theRecipe = theRecipe[0];
+
+      Recipe.find({ author: req.user._id })
+        .then(allMyRecipes => {
+          const theRecipe = allMyRecipes[req.params.index]
+          console.log("================ >>>>>>> ", theRecipe);
+          // theRecipe = theRecipe[0];
           if (req.user) {
             // console.log("--------- ", theRecipe.author._id);
             // console.log("=========", req.user._id);
@@ -120,31 +124,75 @@ router.get("/myRecipes/:index", (req, res, next) => {
               canDelete = true;
             }
           }
-
           const theIngredients = theRecipe.ingredients[0].split("\n");
           theIngredients.shift();
 
           const theDirection = theRecipe.directions.split("\n");
           theDirection.shift();
 
-          data = {
-            theRecipe: theRecipe,
-            canDelete: canDelete,
-            canEdit: canEdit,
-            theIngredients,
-            theDirection,
-            previous: previous,
-            next: nextOne
-          };
+          data = { theRecipe: theRecipe, canDelete: canDelete, canEdit: canEdit, theIngredients, theDirection, previous: previous, next: nextOne };
           // console.log(data)
           res.render("RecipesFolder/recipeDetails", data);
-        })
-        .catch(err => {
+        }).catch(err => {
           next(err);
         });
     })
-    .catch(() => {});
+    .catch(() => {
+
+    })
 });
+// router.get("/myRecipes/:index", (req, res, next) => {
+//   let canDelete = false;
+//   let canEdit = false;
+//   let theIndex = Number(req.params.index);
+//   let previous = theIndex - 1;
+//   let nextOne = theIndex + 1;
+
+//   Recipe.count()
+//     .then(total => {
+//       console.log(total);
+//       if (previous < 0) {
+//         previous = false;
+//       }
+//       if (nextOne > total - 1) {
+//         nextOne = false;
+//       }
+//       Recipe.find({}, {}, { skip: theIndex, limit: 1 })
+//         .populate("author")
+//         .then(theRecipe => {
+//           theRecipe = theRecipe[0];
+//           if (req.user) {
+//             // console.log("--------- ", theRecipe.author._id);
+//             // console.log("=========", req.user._id);
+//             if (String(theRecipe.author._id) == String(req.user._id)) {
+//               canDelete = true;
+//             }
+//           }
+
+//           const theIngredients = theRecipe.ingredients[0].split("\n");
+//           theIngredients.shift();
+
+//           const theDirection = theRecipe.directions.split("\n");
+//           theDirection.shift();
+
+//           data = {
+//             theRecipe: theRecipe,
+//             canDelete: canDelete,
+//             canEdit: canEdit,
+//             theIngredients,
+//             theDirection,
+//             previous: previous,
+//             next: nextOne
+//           };
+//           // console.log(data)
+//           res.render("RecipesFolder/recipeDetails", data);
+//         })
+//         .catch(err => {
+//           next(err);
+//         });
+//     })
+//     .catch(() => {});
+// });
 // =--=-=-=-=-=show each recipe detail ends-=-=-=-=-=-=
 
 // -==--=-=-=delete Recipe starts=--=-=-=-=-=

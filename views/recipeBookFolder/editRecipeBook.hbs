@@ -1,13 +1,11 @@
-<h1>hello</h1>
+<div class="container newRecipeDiv"> 
 
-<h1>Edit {{theRecipeBook.name}}</h1>
+<h1>Add Recipes to {{theRecipeBook.name}}</h1>
 
 
 <form action="/recipeBook/{{theRecipeBook._id}}/update" method="POST">
 
-<h2>Add a Recipe to {{theRecipeBook.name}}</h2>
-
-
+<p> Select a Recipe to Add</p>
   <select name="recipeSelected">
     {{#each recipes}}
    
@@ -24,3 +22,4 @@
 
 
 </form>
+</div>

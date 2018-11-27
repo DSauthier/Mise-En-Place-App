@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Books = require("../models/recipeBookModel");
 const Recipe = require("../models/RecipeModel")
+const uploadCloud = require("../config/cloudinary.js");
 
 // {{!-- / -=-=-=-=-=-==--=-==-show all recipes books starts-==--=-=-=-=-= --}}
 
@@ -34,9 +35,15 @@ router.get("/recipeBook/new", (req, res, next) => {
       });
   }
 });
-router.post("/recipeBook/recipeBook/create", (req, res, next) => {
+router.post("/recipeBook/recipeBook/create",
+  uploadCloud.single("image"), (req, res, next) => {
   const newRecipeBook = req.body;
   newRecipeBook.author = req.user._id;
+
+  if (req.file) {
+    const image = req.file.url;
+    newRecipeBook.image = image;
+  }
 
   Books.create(newRecipeBook)
     .then(() => {
@@ -53,13 +60,81 @@ router.post("/recipeBook/recipeBook/create", (req, res, next) => {
 
 
 // =-=--=-=-=-=show each recipe book detail starts-==--=-=-=
-router.get("/recipeBook/:id", (req, res, next) => {
+
+// router.get("/myRecipes/:index", (req, res, next) => {
+//   let canDelete = false;
+//   let canEdit = false;
+//   let theIndex = Number(req.params.index);
+//   let previous = theIndex - 1;
+//   let nextOne = theIndex + 1;
+//   Recipe.count({ author: req.user._id })
+//     .then(total => {
+//       console.log(total);
+//       if (previous < 0) {
+//         previous = false;
+//       }
+//       if (nextOne > total - 1) {
+//         nextOne = false;
+//       }
+
+//       Recipe.find({ author: req.user._id })
+//         .then(allMyRecipes => {
+//           const theRecipe = allMyRecipes[req.params.index];
+//           console.log("================ >>>>>>> ", theRecipe);
+//           // theRecipe = theRecipe[0];
+//           if (req.user) {
+//             // console.log("--------- ", theRecipe.author._id);
+//             // console.log("=========", req.user._id);
+//             if (String(theRecipe.author._id) == String(req.user._id)) {
+//               canDelete = true;
+//             }
+//           }
+//           const theIngredients = theRecipe.ingredients[0].split("\n");
+//           theIngredients.shift();
+
+//           const theDirection = theRecipe.directions.split("\n");
+//           theDirection.shift();
+
+//           data = {
+//             theRecipe: theRecipe,
+//             canDelete: canDelete,
+//             canEdit: canEdit,
+//             theIngredients,
+//             theDirection,
+//             previous: previous,
+//             next: nextOne
+//           };
+//           // console.log(data)
+//           res.render("RecipesFolder/recipeDetails", data);
+//         })
+//         .catch(err => {
+//           next(err);
+//         });
+//     })
+//     .catch(() => {});
+// });
+router.get("/recipeBook/:index", (req, res, next) => {
   let canDelete = false;
   let canEdit = false;
-  Books.findById(req.params.id)
+  let theIndex = Number(req.params.index);
+  let previous = theIndex - 1;
+  let nextOne = theIndex + 1;
+
+  // Recipe.count({ author: req.user._id })
+//     .then(total => {
+//       console.log(total);
+//       if (previous < 0) {
+//         previous = false;
+//       }
+//       if (nextOne > total - 1) {
+//         nextOne = false;
+//       }
+  
+  Books.find()
     .populate("author")
     .populate("recipes")
     .then(theRecipeBook => {
+      theRecipeBook = theRecipeBook[theIndex];
       if (req.user) {
         // console.log("--------- ", theRecipeBook.author._id);
         // console.log("=========", req.user._id);
@@ -67,6 +142,7 @@ router.get("/recipeBook/:id", (req, res, next) => {
           canDelete = true;
         }
       }
+      console.log("-------------------- ", theRecipeBook)
       data = {
         theRecipeBook: theRecipeBook,
         canDelete: canDelete,

@@ -3,7 +3,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-size: cover;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 // *{
 //   border: none;
@@ -155,7 +156,7 @@ a {
     margin-left: 45%;
     border: none;
     cursor: pointer;
-    width: 10%;
+    // width: 10%;
     border-radius: 10px;
 }
 

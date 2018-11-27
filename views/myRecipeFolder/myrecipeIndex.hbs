@@ -1,0 +1,36 @@
+
+<div class="container welcome">
+<h1> User: {{user.username}} Recipes</h1>
+</div>
+<div class="container lastNextButton">
+  {{#if previous}}
+  <a href="/recipes/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  {{/if}}
+  <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Public Recipes</button></a>
+  {{!-- <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipes</button></a> --}}
+  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipe Books</button></a>
+
+  {{#if next}}
+  <a href="/recipes/{{next}}"><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+  {{/if}}
+</div>
+<a href="/recipes/new"><button class="loginButton ">Create new Recipe</button></a>
+<div class="row recipeGrid">
+  {{#each Recipes}}
+
+  <div class="col-sm-6 col-md-3 eachRecipeGrid">
+    <img class="imgSize" src="{{this.image}}" alt="">
+
+    <div class="recipeInfo">
+      <p>{{this.name}}</p>
+
+    </div>
+
+    <a href="/myRecipes/{{@index}}"><button class="eachRecipeAnchor">See Details</button></a>
+    {{!-- <a href="/recipes/{{@index}}"><button class="eachRecipeAnchor">See Details</button></a> --}}
+  </div>
+  {{/each}}
+
+
+
+</div>

@@ -1,3 +1,7 @@
+<div class="container welcome">
+  <h1> {{theRecipeBook.name}}</h1>
+</div>
+
 <div class="container lastNextButton">
   <a href=""><button class="orangeButton btn btn-outline-warning">Last Recipe Book</button></a>
   <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to Recipe Books Page </button></a>
@@ -17,7 +21,7 @@
       <p>{{this.name}}</p>
     </div>
     <div>
-    <a href="/recipes/{{this._id}}"><button class="eachRecipeAnchor">See Details</button></a>
+    <a href="/recipeBook/{{../theRecipeBook._id}}/{{@index}}"><button class="eachRecipeAnchor">See Recipe Details</button></a>
     </div>
   </div>
   {{/each}}

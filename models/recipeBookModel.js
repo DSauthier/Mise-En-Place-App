@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const BooksSchema = new Schema({
   name: String,
   recipes: [{type: Schema.Types.ObjectId, ref: "Recipe"}],
-  image: String,
+  image: { type: String, default: "/images/pexels-photo-1029141.jpeg "},
   author: { type: Schema.Types.ObjectId, ref: 'User'}
 },
   {
