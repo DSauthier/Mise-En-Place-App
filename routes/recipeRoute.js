@@ -198,7 +198,7 @@ router.get("/recipeBook/:id/:index", (req, res, next) => {
             next: nextOne
           };
           // console.log(data)
-          res.render("RecipesFolder/recipeDetails", data);
+          res.render("recipeBookFolder/singleRecipeFromBook.hbs", data);
         })
         .catch(err => {
           next(err);

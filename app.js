@@ -110,15 +110,16 @@ app.use('/', index);
 const user = require("./routes/userRoute");
 app.use("/", user);
 
-const recipe = require("./routes/recipeRoute");
-app.use("/", recipe);
+
+const recipeBook = require("./routes/recipeBookRoute");
+app.use("/", recipeBook);
 
 const myRecipes = require("./routes/myRecipeRoute");
 app.use("/", myRecipes);
 
+const recipe = require("./routes/recipeRoute");
+app.use("/", recipe);
 
-const recipeBook = require("./routes/recipeBookRoute");
-app.use("/", recipeBook);
 
 
 module.exports = app;
