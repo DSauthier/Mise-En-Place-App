@@ -1,10 +1,12 @@
+
+
 <div class="container lastNextButton">
-  {{#if previous}}
-  <a href="/recipeBook/{{../theRecipeBook._id}}/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  {{#if canGoBack}}
+  <a href="/recipeBook/{{theRecipeBook._id}}/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
   {{/if}}
   <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Public Recipes</button></a>
   <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipes</button></a>
-  <a href="/recipeBook/"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipe Books</button></a>
+  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipe Books</button></a>
  
   {{#if next}}
   <a href="/recipeBook/{{theRecipeBook._id}}/{{next}}"><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
@@ -12,7 +14,6 @@
 </div>
 
 <div class="container editRecipeDiv">
-  <h1>HELLOOOOOOOOOO!!!</h1>
 <h1>
   {{theRecipe.name}}
 </h1>

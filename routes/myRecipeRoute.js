@@ -77,13 +77,15 @@ router.post(
   uploadCloud.single("image"),
   (req, res, next) => {
     const updateAll = req.body;
-    const image = req.file.url;
-    updateAll.image = image;
+    if (req.file) {
+      const image = req.file.url;
+      updateAll.image = image;
+    }
     Recipe.findByIdAndUpdate(req.params._id, updateAll)
 
       .then(() => {
         // console.log("-=-==--=-=-=-==-"+theRecipe)
-        res.redirect("/myRecipes/" + req.params._id);
+        res.redirect("/myRecipes/");
       })
       .catch(err => {
         next(err);
@@ -102,11 +104,12 @@ router.get("/myRecipes/:index", (req, res, next) => {
   let theIndex = Number(req.params.index);
   let previous = theIndex - 1;
   let nextOne = theIndex + 1;
+  let canGoBack = true;
   Recipe.count({ author: req.user._id })
     .then((total) => {
       console.log(total)
-      if (previous < 0) {
-        previous = false
+      if (req.params.index < 1) {
+        canGoBack = false;
       }
       if (nextOne > total - 1) {
         nextOne = false
@@ -130,7 +133,7 @@ router.get("/myRecipes/:index", (req, res, next) => {
           const theDirection = theRecipe.directions.split("\n");
           theDirection.shift();
 
-          data = { theRecipe: theRecipe, canDelete: canDelete, canEdit: canEdit, theIngredients, theDirection, previous: previous, next: nextOne };
+          data = { theRecipe: theRecipe, canDelete: canDelete, canEdit: canEdit, theIngredients, theDirection, previous: previous, next: nextOne, canGoBack: canGoBack };
           // console.log(data)
           res.render("myRecipeFolder/myRecipeDetails.hbs", data);
         }).catch(err => {
