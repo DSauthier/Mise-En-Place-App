@@ -234,7 +234,7 @@ span.psw {
   padding: 40px;
   margin: 10px;
   /* font-size: 20px; */
-  font-size: 13vw;
+  font-size: 150px;
   color: darkorange; }
 
 .dashboardDiv {
@@ -331,8 +331,8 @@ span.psw {
   justify-content: center; }
 
 .imgSize {
-  height: 35vh;
-  width: 20vw; }
+  height: 250px;
+  border: 2px solid black; }
 
 .newRecipeDiv {
   font-family: 'Courgette',cursive;
