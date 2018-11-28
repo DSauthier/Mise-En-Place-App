@@ -402,4 +402,35 @@ span.psw {
 .eachRecipeBookGrid p {
   font-size: 1.2rem; }
 
+.aboutDiv {
+  color: cornsilk;
+  font-family: 'Courgette', cursive;
+  text-shadow: 2px 2px black; }
+
+.aboutDiv p {
+  font-size: 1.3rem; }
+
+.aboutDiv h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.exclamation {
+  font-size: 1.5rem; }
+
+.aboutImg {
+  border-radius: 50%;
+  height: 35vh;
+  float: right;
+  border: 2px solid black; }
+
+.jumbo {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: cornsilk;
+  font-family: 'Courgette', cursive;
+  text-shadow: 2px 2px grey; }
+
 /*# sourceMappingURL=style.css.map */
