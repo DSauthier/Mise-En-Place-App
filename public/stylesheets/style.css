@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-image: url("/images/background/pexels-photo-1624178.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh; }
@@ -12,8 +12,9 @@ a {
 .landing {
   position: relative;
   top: 35vh;
-  color: cornsilk;
-  font-family: 'Courgette', cursive; }
+  color: darkorange;
+  font-family: 'Aref Ruqaa', serif;
+  text-shadow: 1px 1px black; }
 
 .landing h1 {
   display: flex;
@@ -82,8 +83,8 @@ a {
   padding: 20px; }
 
 .phraseToCallAtention {
-  color: cornsilk;
-  font-family: 'Courgette', cursive;
+  color: darkorange;
+  font-family: 'Aref Ruqaa', serif;
   display: flex;
   justify-content: center;
   font-size: 6vw; }
@@ -227,8 +228,9 @@ span.psw {
   justify-content: center;
   align-items: center;
   font-size: 5.5rem;
-  color: cornsilk;
-  font-family: 'Courgette', cursive; }
+  color: darkorange;
+  font-family: 'Aref Ruqaa', serif;
+  text-shadow: 1px 1px black; }
 
 .icon {
   padding: 40px;
@@ -293,7 +295,7 @@ span.psw {
 .title404 {
   color: seashell;
   font-size: 3.5rem;
-  font-family: 'Pattaya', sans-serif;
+  font-family: 'Aref Ruqaa', serif;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -321,11 +323,11 @@ span.psw {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  color: cornsilk;
-  font-family: 'Courgette', cursive;
+  color: darkorange;
+  font-family: 'Aref Ruqaa', serif;
   height: 20vh;
   font-size: 1.5rem;
-  text-shadow: 2px 2px black; }
+  text-shadow: 1px 1px black; }
 
 .recipeInfo p {
   justify-content: center; }
@@ -335,7 +337,7 @@ span.psw {
   border: 2px solid black; }
 
 .newRecipeDiv {
-  font-family: 'Courgette',cursive;
+  font-family: 'Aref Ruqaa', serif;
   color: lightgreen; }
 
 .newRecipeDiv h1 {
@@ -366,7 +368,7 @@ span.psw {
   text-align: center;
   align-items: center;
   font-size: 2.5rem;
-  font-family: 'Courgette',cursive;
+  font-family: 'Aref Ruqaa', serif;
   color: lightgreen; }
 
 .textArea {
@@ -381,13 +383,13 @@ span.psw {
   margin: 0px 25px; }
 
 .editRecipeDiv {
-  font-family: 'Courgette',cursive;
+  font-family: 'Aref Ruqaa', serif;
   color: firebrick;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  text-shadow: 2px 2px black; }
+  text-shadow: 1px 1px black; }
 
 .recipeImage {
   width: 35vw; }
@@ -403,9 +405,9 @@ span.psw {
   font-size: 1.2rem; }
 
 .aboutDiv {
-  color: cornsilk;
-  font-family: 'Courgette', cursive;
-  text-shadow: 2px 2px black; }
+  color: darkorange;
+  font-family: 'Aref Ruqaa', serif;
+  text-shadow: 1px 1px black; }
 
 .aboutDiv p {
   font-size: 1.3rem; }
@@ -425,12 +427,12 @@ span.psw {
   border: 2px solid black; }
 
 .jumbo {
-  background-color: black;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: cornsilk;
-  font-family: 'Courgette', cursive;
-  text-shadow: 2px 2px grey; }
+  color: darkorange;
+  font-family: 'Aref Ruqaa', serif;
+  text-shadow: 1px 1px grey; }
 
 /*# sourceMappingURL=style.css.map */
