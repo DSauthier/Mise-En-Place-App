@@ -4,7 +4,7 @@
 
 <div class="container lastNextButton">
 
-  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to Recipe Books Page </button></a>
+  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning btn-special-hover">Go Back to Recipe Books Page </button></a>
 
 </div>
 
@@ -30,10 +30,10 @@
 <div class="container lastNextButton">
 
 <form action="{{theRecipeBook._id}}/delete" method="POST">
-  <button class="orangeButton btn btn-outline-warning" >Delete This Recipe Book</button>
+  <button class="orangeButton btn btn-outline-warning btn-special-hover" >Delete This Recipe Book</button>
 </form>
 {{!-- <form action="{{theRecipeBook._id}}/edit" method="GET"> --}}
-  <a href="/recipeBook/{{theRecipeBook._id}}/edit"><button class="orangeButton btn btn-outline-warning" >Edit This Recipe Book</button></a>
+  <a href="/recipeBook/{{theRecipeBook._id}}/edit"><button class="orangeButton btn btn-outline-warning btn-special-hover" >Edit This Recipe Book</button></a>
   {{!-- </form> --}}
 </div>
 {{/if}}

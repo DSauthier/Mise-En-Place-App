@@ -5,13 +5,13 @@
 <a href="/recipeBook/new"><button class="loginButton ">Create new Recipe Book</button></a>
 <div class="container lastNextButton">
   {{#if previous}}
-  <a href="/recipes/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  <a href="/recipes/{{previous}}"><button class="orangeButton btn btn-outline-warning btn-special-hover">Last Recipe</button></a>
   {{/if}}
-  <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Public Recipes</button></a>
-  <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipes</button></a>
+  <a href="/recipes"><button class="orangeButton btn btn-outline-warning btn-special-hover">Go Back to Public Recipes</button></a>
+  <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning btn-special-hover">Go Back to your Recipes</button></a>
 
   {{#if next}}
-  <a href="/recipes/{{next}}"><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+  <a href="/recipes/{{next}}"><button class="orangeButton btn btn-outline-warning btn-special-hover">Next Recipe</button></a>
   {{/if}}
 </div>
 <div class="row recipeGrid">

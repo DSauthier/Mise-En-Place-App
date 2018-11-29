@@ -1,13 +1,13 @@
 <div class="container lastNextButton">
   {{#if canGoBack}}
-  <a href="/myRecipes/{{previous}}"><button class="orangeButton btn btn-outline-warning">Last Recipe</button></a>
+  <a href="/myRecipes/{{previous}}"><button class="orangeButton btn btn-outline-warning btn-special-hover">Last Recipe</button></a>
   {{/if}}
-  <a href="/recipes"><button class="orangeButton btn btn-outline-warning">Go Back to Public Recipes</button></a>
-  <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipes</button></a>
-  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning">Go Back to your Recipe Books</button></a>
+  <a href="/recipes"><button class="orangeButton btn btn-outline-warning btn-special-hover">Go Back to Public Recipes</button></a>
+  <a href="/myRecipes"><button class="orangeButton btn btn-outline-warning btn-special-hover">Go Back to your Recipes</button></a>
+  <a href="/recipeBook"><button class="orangeButton btn btn-outline-warning btn-special-hover">Go Back to your Recipe Books</button></a>
 
   {{#if next}}
-  <a href="/myRecipes/{{next}}"><button class="orangeButton btn btn-outline-warning">Next Recipe</button></a>
+  <a href="/myRecipes/{{next}}"><button class="orangeButton btn btn-outline-warning btn-special-hover">Next Recipe</button></a>
   {{/if}}
 </div>
 
@@ -58,10 +58,10 @@
 
   {{#if canDelete}}
   <form action="/recipes/{{theRecipe._id}}/delete" method="POST">
-    <button class="orangeButton btn btn-outline-warning">Delete This Recipe</button>
+    <button class="orangeButton btn btn-outline-warning btn-special-hover">Delete This Recipe</button>
   </form>
   <br>
-  <a href="{{theRecipe._id}}/edit"><button class="orangeButton btn btn-outline-warning">Edit This Recipe</button></a>
+  <a href="{{theRecipe._id}}/edit"><button class="orangeButton btn btn-outline-warning btn-special-hover">Edit This Recipe</button></a>
   {{/if}}
 
 

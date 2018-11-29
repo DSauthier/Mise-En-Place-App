@@ -396,6 +396,9 @@ span.psw {
 }
 .recipeInfo p {
     justify-content: center;
+        justify-content: center;
+    letter-spacing: 1.2px;
+    text-shadow: 1px 1px 1px black;
 }
 
 .imgSize{
@@ -544,6 +547,7 @@ font-size: 1.2rem;
     font-family: 'Aref Ruqaa', serif;
     text-shadow: 1px 1px 1px black;
     word-spacing: 3px;
+        letter-spacing: 1px;
 }
 .aboutDiv p{
     font-size: 1.3rem;
@@ -574,3 +578,12 @@ font-size: 1.2rem;
 }
 
 // =-=--=-=-=-=-=about page ends=--=-==--==--==--==
+
+// =--=-=-=-==--=buttons =--=-=-=-=-=
+
+.btn-special-hover{
+        color: #ffc107;
+    background-color: #343a40;
+    background-image: none;
+    border-color: transparent;
+}

@@ -330,7 +330,10 @@ span.psw {
   text-shadow: 1px 1px 1px black; }
 
 .recipeInfo p {
-  justify-content: center; }
+  justify-content: center;
+  justify-content: center;
+  letter-spacing: 1.2px;
+  text-shadow: 1px 1px 1px black; }
 
 .imgSize {
   height: 290px;
@@ -447,7 +450,8 @@ span.psw {
   color: darkorange;
   font-family: 'Aref Ruqaa', serif;
   text-shadow: 1px 1px 1px black;
-  word-spacing: 3px; }
+  word-spacing: 3px;
+  letter-spacing: 1px; }
 
 .aboutDiv p {
   font-size: 1.3rem; }
@@ -474,5 +478,11 @@ span.psw {
   color: darkorange;
   font-family: 'Aref Ruqaa', serif;
   text-shadow: 1px 1px grey; }
+
+.btn-special-hover {
+  color: #ffc107;
+  background-color: #343a40;
+  background-image: none;
+  border-color: transparent; }
 
 /*# sourceMappingURL=style.css.map */
