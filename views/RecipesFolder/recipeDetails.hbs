@@ -26,20 +26,36 @@
 
 <br>
 
-<div >
+<div class="detailIngredient" >
+  <h2>
+  <ul class="listStyleNone">
+
+    Amounts: {{#each theRecipe.amountOfEachIngredient}}
+    <li>
+      {{this}}
+    </li>
+
+    {{/each}}
+
+  </ul>
+</h2>
+
   <h2>
     <ul class="listStyleNone">
 
  Ingredients: {{#each theIngredients}}
 <li>
- {{this}}
+ grams of  {{this}}
 </li>
 
  {{/each}}
+
     </ul>
   </h2>
 
-<br>
+<br> 
+</div>
+<div>
   <h2>
     <ul class="listStyleNone">
   

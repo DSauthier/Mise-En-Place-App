@@ -30,7 +30,7 @@
 
   <div class="textArea">
     <label id="diferentLabel" for="ingredients">Amount in Grams: </label>
-    <textarea name="amountOfEachIngredient" id="" cols="10" rows="15" placeholder="Please Insert one ingredient amount per ingredient and hit enter after it.">{{theRecipe.amountOfEachIngredient}}</textarea>
+    <textarea name="amountOfEachIngredient" id="" cols="10" rows="15" placeholder="Please Insert one ingredient amount per ingredient and hit enter after it.">{{#each theRecipe.amountOfEachIngredient}}{{this}}{{/each}}</textarea>
   </div>
 
   <div class="textArea">

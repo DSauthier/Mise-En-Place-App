@@ -14,7 +14,7 @@ a {
   top: 35vh;
   color: darkorange;
   font-family: 'Aref Ruqaa', serif;
-  text-shadow: 1px 1px black; }
+  text-shadow: 1px 1px 1px black; }
 
 .landing h1 {
   display: flex;
@@ -230,7 +230,7 @@ span.psw {
   font-size: 5.5rem;
   color: darkorange;
   font-family: 'Aref Ruqaa', serif;
-  text-shadow: 1px 1px black; }
+  text-shadow: 1px 1px 1px black; }
 
 .icon {
   padding: 40px;
@@ -327,7 +327,7 @@ span.psw {
   font-family: 'Aref Ruqaa', serif;
   height: 20vh;
   font-size: 1.5rem;
-  text-shadow: 1px 1px black; }
+  text-shadow: 1px 1px 1px black; }
 
 .recipeInfo p {
   justify-content: center; }
@@ -350,7 +350,7 @@ span.psw {
   font-family: 'Aref Ruqaa', serif;
   color: blue;
   word-spacing: 10px;
-  text-shadow: 1px 1px black; }
+  text-shadow: 1px 1px 1px black; }
 
 .newRecipeDiv h1 {
   display: flex;
@@ -421,7 +421,7 @@ span.psw {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px 1px black;
   line-height: 2rem;
   word-spacing: 4px; }
 
@@ -430,6 +430,11 @@ span.psw {
 
 .listStyleNone {
   list-style-type: none; }
+
+.detailIngredient {
+  display: flex;
+  /* justify-content: center; */
+  align-items: flex-start; }
 
 .eachRecipeBookGrid {
   padding: 30px;
@@ -441,7 +446,7 @@ span.psw {
 .aboutDiv {
   color: darkorange;
   font-family: 'Aref Ruqaa', serif;
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px 1px black;
   word-spacing: 3px; }
 
 .aboutDiv p {
