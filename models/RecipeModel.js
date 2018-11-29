@@ -13,7 +13,9 @@ const RecipeSchema = new Schema({
   image: {type: String, default: "/images/photo-1466637574441-749b8f19452f.jpeg"},
   imgName: String,
   cuisine:{ type: String, enum: ['Carnivore','Vegetarian','Vegan',"Seafood","Poultry","All Purpose","Basics"] },
-  author: { type: Schema.Types.ObjectId, ref: 'User' }
+  author: { type: Schema.Types.ObjectId, ref: 'User' },
+  amountOfEachIngredient: [Number],
+  totalCalories: Number,
 },
    {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

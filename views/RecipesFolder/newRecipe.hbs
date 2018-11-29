@@ -2,7 +2,7 @@
 <div class="container newRecipeDiv">
 
 
-<h1>Crete New recipe here</h1>
+<h1>Create New recipe here</h1>
 
 <form action="/recipes/recipes/create" method="POST" enctype="multipart/form-data">
 <label for="name">Recipe Name: </label>
@@ -30,18 +30,22 @@
 <label for="time">Time to Make : </label>
 <input type="number" name="time" required> Minutes
 <br>
-<div class="recipeText">
-    <div class="textArea">
-<label for="ingredients">Ingredients : </label>
-<textarea name="ingredients" id="" cols="80" rows="15" placeholder = "Please Insert one ingredient Per line(Hit enter at the end of each ingredient)"></textarea>
-    </div>
+    <div class="recipeText">
+             <div class="textArea" >
+            <label for="ingredients">Ingredients Name : </label>
+            <textarea name="ingredients" id="" cols="10" rows="15" placeholder="Please Insert one ingredient and Hit enter after each ingredient to create a list of ingredients."></textarea>
+            </div>
 
-<br>
-<div class="textArea">
-<label for="directions">Directions :</label>
-<textarea name="directions" id="" cols="80" rows="15"></textarea>
-</div>
-</div>
+            <div class="textArea">
+            <label id="diferentLabel" for="ingredients">Amount in Grams: </label>
+            <textarea name="amountOfEachIngredient" id="" cols="10" rows="15" placeholder = "Please Insert one ingredient amount per ingredient and hit enter after it."></textarea>
+            </div>
+
+            <div class="textArea">
+            <label for="directions">Directions :</label>
+            <textarea name="directions" id="" cols="80" rows="15"></textarea>
+            </div>
+    </div>
 <br>
 
 

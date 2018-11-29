@@ -399,15 +399,28 @@ span.psw {
 }
 
 .imgSize{
-    height: 250px;
+    height: 290px;
     // width: 20vw;
     border: 2px solid black;
+    border-radius: 15%;
+    min-width: 290px;
+    max-width: 291px;
+}
+.bookImgSize{
+    height: 240px;
+    // width: 20vw;
+    border: 2px solid black;
+    border-radius: 15%;
+    min-width: 240px;
+     max-width: 291px;
 }
 // -=-=-=-=-=-=-=-=-=-=recipes index ends here-0=--==-=--=-==--=-==-=-
 // -=-=-=-=-=-=-=-=-=-=recipes create starts here-0=--==-=--=-==--=-==-=-
 .newRecipeDiv{
-    font-family: 'Aref Ruqaa', serif;    color: lightgreen;
-    
+    font-family: 'Aref Ruqaa', serif;
+    color: blue;
+    word-spacing: 10px;
+    text-shadow: 1px 1px black;
 }
 .newRecipeDiv h1{
     display: flex;
@@ -440,11 +453,36 @@ span.psw {
     text-align: center;
     align-items: center;
     font-size: 2.5rem;
-    font-family: 'Aref Ruqaa', serif;    color: lightgreen;
+    font-family: 'Aref Ruqaa', serif; 
 }
 .textArea{
     margin: 2px 30px;
+        width: 25vw;
 }
+
+#textArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+// #textArea2{
+//     width: 100%; /* Full width */
+//     padding: 12px; /* Some padding */  
+//     border: 1px solid #ccc; /* Gray border */
+//     border-radius: 4px; /* Rounded borders */
+//     box-sizing: border-box; /* Make sure that padding and width stays in place */
+//     margin-top: 6px; /* Add a top margin */
+//     margin-bottom: 16px; /* Bottom margin */
+//     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+// }
 
 // -=-=-=-=-=-=-=-=-=-=recipes Create ends  here-0=--==-=--=-==--=-==-=-
 

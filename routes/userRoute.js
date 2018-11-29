@@ -77,7 +77,18 @@ router.get("/dashboard/", (req, res) => {
 
 // -==-=-=-=--==-=-=-=-log in ends here =-=--=-=-=-=-=-=-=
 
-
+// delete user starts-==--=-=-=-=
+// router.post("/user/delete", (req, res, next) => {
+//   User.findByIdAndRemove(req.params.id)
+//     .then(() => {
+//       res.redirect("/login");
+//     })
+//     .catch(err => {
+//       console.log("error");
+//       next(err);
+//     });
+// });
+// delete user ends =--=-=-=-=-=
 
 
 module.exports = router;

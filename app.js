@@ -120,6 +120,9 @@ app.use("/", myRecipes);
 const recipe = require("./routes/recipeRoute");
 app.use("/", recipe);
 
+const food = require("./config/foodApi.js");
+app.use("/", food);
+
 
 
 module.exports = app;

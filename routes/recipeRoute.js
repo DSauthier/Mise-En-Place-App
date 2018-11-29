@@ -4,6 +4,10 @@ const Recipe = require('../models/RecipeModel');
 const uploadCloud = require("../config/cloudinary.js");
 const Book = require("../models/recipeBookModel");
 
+const NutritionFacts = require("nutrition-facts").default;
+
+const NF = new NutritionFacts(process.env.USDA_NDB_API_KEY);
+
 // index recipe page-> show all recipes --==--=-=-=-=
 router.get("/recipes", (req, res, next) => {
   Recipe.find()
@@ -38,23 +42,57 @@ router.post(
   uploadCloud.single("image"),
   (req, res, next) => {
     const newRecipe = req.body;
+    newRecipe.totalCalories = 0; 
+    // let totalCalories = 0;
     newRecipe.author = req.user._id;
+
+    newRecipe.amountOfEachIngredient = newRecipe.amountOfEachIngredient.split("\n");
+
+
+
+    const newRecipeIngredients = newRecipe.ingredients;
+
+    let split = newRecipeIngredients.split("\n")
+
+
+    console.log(split)
+    split.forEach((eachIngredient,i)=>{
+   NF.searchFoods({
+      q: eachIngredient,
+      ds: 'Standard Reference'
+    }).then(results => {
+      let mySelectedItem = results.list.item[0];
+      mySelectedItem.getNutrition()
+        .then(nutritionReport => {
+          console.log(nutritionReport.nutrients[1].value)
+          newRecipe.totalCalories += ((Number(nutritionReport.nutrients[1].value)/100)*(newRecipe.amountOfEachIngredient[i]));
+          // console.log("-=-=-=-==--=-==--=-=-=",totalCalories)
+           })
+        })
+      });
+    // })
 
     if (req.file) {
       const image = req.file.url;
       newRecipe.image = image;
     }
 
-    
-    Recipe.create(newRecipe)
-      .then(() => {
+
+    setTimeout(() => {
+      console.log("=--=-=-=-==-=-=-=-=-=-=-",newRecipe)
+      
+      Recipe.create(newRecipe)
+      .then((x) => {
+        // console.log("09900909090909090990909090",x)
         res.redirect("/recipes");
       })
       .catch(err => {
         next(err);
       });
-  }
-);
+      
+    }, 3000);
+
+  });
 
 
 // =--=-=-=-=-=Create recipe ends -=-=--==--=-==-
@@ -77,22 +115,64 @@ router.post(
   uploadCloud.single("image"),
   (req, res, next) => {
     const updateAll = req.body;
+
+
+    updateAll.totalCalories = 0;
+    // let totalCalories = 0;
+    updateAll.author = req.user._id;
+
+    updateAll.amountOfEachIngredient = updateAll.amountOfEachIngredient.split("\n");
+
+
+
+    const updateAllIngredients = updateAll.ingredients;
+
+    let split = updateAllIngredients.split("\n")
+
+
+    console.log(split)
+    split.forEach((eachIngredient, i) => {
+      NF.searchFoods({
+        q: eachIngredient,
+        ds: 'Standard Reference'
+      }).then(results => {
+        let mySelectedItem = results.list.item[0];
+        mySelectedItem.getNutrition()
+          .then(nutritionReport => {
+            console.log(nutritionReport.nutrients[1].value)
+            updateAll.totalCalories += ((Number(nutritionReport.nutrients[1].value) / 100) * (updateAll.amountOfEachIngredient[i]));
+            // console.log("-=-=-=-==--=-==--=-=-=",totalCalories)
+          })
+      })
+    });
+
+
+
+
     // updateAll.image = image;
     if (req.file) {
       const image = req.file.url;
       updateAll.image = image;
     }
-    Recipe.findByIdAndUpdate(req.params._id, updateAll)
 
-      .then(() => {
-        // console.log("-=-==--=-=-=-==-"+theRecipe)
-        res.redirect("/recipes/");
-      })
-      .catch(err => {
-        next(err);
-      });
-  }
-);
+
+setTimeout(() => {
+  
+  
+  
+  Recipe.findByIdAndUpdate(req.params._id, updateAll)
+  
+  .then(() => {
+    // console.log("-=-==--=-=-=-==-"+theRecipe)
+    res.redirect("/recipes/");
+  })
+  .catch(err => {
+    next(err);
+  });
+  
+}, 3000);
+  
+});
 
 // =--=-=-=-=-=-=-=EDIT RECIPE ENDS=--==--=-=-=-=-=-=
 
@@ -129,7 +209,7 @@ Recipe.count()
       }
 
       const theIngredients = theRecipe.ingredients[0].split("\n");
-      theIngredients.shift();
+      // theIngredients.shift();
 
       const theDirection = theRecipe.directions.split("\n");
       theDirection.shift();
