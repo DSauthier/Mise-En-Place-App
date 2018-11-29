@@ -25,33 +25,48 @@
   <h2> Creator: {{theRecipe.author.username}}</h2>
 
   <br>
+<div class="detailIngredient">
+  <h2>
+    <ul class="listStyleNone">
 
-  <div>
-    <h2>
-      <ul class="listStyleNone">
+      Amounts: {{#each theRecipe.amountOfEachIngredient}}
+      <li>
+        {{this}}
+      </li>
 
-        Ingredients: {{#each theIngredients}}
-        <li>
-          {{this}}
-        </li>
+      {{/each}}
 
-        {{/each}}
-      </ul>
-    </h2>
+    </ul>
+  </h2>
 
-    <br>
-    <h2>
-      <ul class="listStyleNone">
+  <h2>
+    <ul class="listStyleNone">
 
-        Directions: {{#each theDirection}}
-        <li>
-          {{this}}
-        </li>
+      Ingredients: {{#each theIngredients}}
+      <li>
+        grams of {{this}}
+      </li>
 
-        {{/each}}
-      </ul>
-    </h2>
-  </div>
+      {{/each}}
+
+    </ul>
+  </h2>
+
+  <br>
+</div>
+<div>
+  <h2>
+    <ul class="listStyleNone">
+
+      Directions: {{#each theDirection}}
+      <li>
+        {{this}}
+      </li>
+
+      {{/each}}
+    </ul>
+  </h2>
+</div>
   <h4>
     Time to make: {{theRecipe.time}} Minutes</h4>
 
