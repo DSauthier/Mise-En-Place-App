@@ -485,4 +485,28 @@ span.psw {
   background-image: none;
   border-color: transparent; }
 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .navbarSize {
+    z-index: 1; }
+  .landing {
+    position: relative;
+    top: 0;
+    color: darkorange;
+    font-family: 'Aref Ruqaa', serif;
+    text-shadow: 1px 1px 1px black; } }
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .landing {
+    /* top: 35vh; */
+    color: darkorange;
+    font-family: 'Aref Ruqaa', serif;
+    text-shadow: 1px 1px 1px black; } }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .landing {
+    /* top: 35vh; */
+    color: darkorange;
+    font-family: 'Aref Ruqaa', serif;
+    text-shadow: 1px 1px 1px black; } }
+
 /*# sourceMappingURL=style.css.map */
