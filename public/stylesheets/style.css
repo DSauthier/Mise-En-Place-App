@@ -389,7 +389,9 @@ span.psw {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  text-shadow: 1px 1px black; }
+  text-shadow: 1px 1px black;
+  line-height: 2rem;
+  word-spacing: 4px; }
 
 .recipeImage {
   width: 35vw; }
@@ -407,7 +409,8 @@ span.psw {
 .aboutDiv {
   color: darkorange;
   font-family: 'Aref Ruqaa', serif;
-  text-shadow: 1px 1px black; }
+  text-shadow: 1px 1px black;
+  word-spacing: 3px; }
 
 .aboutDiv p {
   font-size: 1.3rem; }
