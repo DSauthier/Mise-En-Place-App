@@ -69,7 +69,8 @@
 </div>
   <h4>
     Time to make: {{theRecipe.time}} Minutes</h4>
-
+<h4>
+  Calories: {{theRecipe.totalCalories}} Kcal per Batch of this Recipe</h4>
 
   {{#if canDelete}}
   <form action="/recipes/{{theRecipe._id}}/delete" method="POST">
