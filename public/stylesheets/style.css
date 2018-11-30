@@ -443,11 +443,13 @@ span.psw {
   width: 35vw; }
 
 .listStyleNone {
-  list-style-type: none;
-  white-space: nowrap; }
+  list-style-type: none; }
 
 .diferentClass {
-  width: auto; }
+  white-space: nowrap; }
+
+.specialLabel {
+  margin-bottom: 75px; }
 
 .detailIngredient {
   display: flex;
