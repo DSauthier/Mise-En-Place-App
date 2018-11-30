@@ -531,13 +531,17 @@ span.psw {
 }
 .listStyleNone{
     list-style-type: none;
+ white-space: nowrap;
+}
+.diferentClass{
+width: auto;
 }
 .detailIngredient{
     display: flex;
     /* justify-content: center; */
     align-items: flex-start;
 }
-#directionsLabel{
+.directionsLabel{
         height: 125px;
 }
 
