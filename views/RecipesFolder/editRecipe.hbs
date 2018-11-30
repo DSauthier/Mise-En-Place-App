@@ -1,3 +1,5 @@
+
+  <div class="protection">
 <div class="container newRecipeDiv">
 
 <h1>Edit {{theRecipe.name}}</h1>
@@ -24,7 +26,7 @@
 <br>
 <div class="recipeText">
   <div class="textArea">
-    <label for="ingredients">Ingredients Name : </label>
+    <label for="ingredients">Ingredients Name: </label>
     <textarea name="ingredients" id="" cols="10" rows="15" placeholder="Please Insert one ingredient and Hit enter after each ingredient to create a list of ingredients.">{{theRecipe.ingredients.[0]}}</textarea>
   </div>
 
@@ -35,7 +37,7 @@
   </div>
 
   <div class="textArea">
-    <label for="directions">Directions :</label>
+    <label id="directionsLabel" for="directions">Directions :</label>
     <textarea name="directions" id="" cols="80" rows="15">{{theRecipe.directions}}</textarea>
   </div>
 </div>
@@ -50,7 +52,7 @@
 
 </div>
 
-
+</div>
 {{!-- <div class="recipeText">
   <div class="textArea">
 
